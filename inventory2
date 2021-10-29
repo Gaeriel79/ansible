@@ -1,0 +1,12 @@
+[rpiinit]
+raspberrypi
+
+[rpiinit:vars]
+ansible_ssh_user:pi
+ansible_ssh_password:raspberry
+
+[dockerpi]
+dockerpi
+
+[dockerpi:vars]
+ansible_ssh_user:hoodmaster
