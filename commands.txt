@@ -1,0 +1,2 @@
+Syntax Check:
+ansible-playbook rpiinit.yml --syntax-check
