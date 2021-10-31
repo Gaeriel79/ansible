@@ -1,0 +1,22 @@
+---
+- name: Basic Setup for a new Raspberry Pi
+  hosts: all
+  tasks:
+    - name: Create Users
+      user:
+        name: hoodmaster
+        groups: "{{ admin_group }}"
+        create_home: false
+        comment: 'Ansible Management Account'
+        expires: -1
+        password: 'placeholder'
+        
+        user:
+        name: gaeriel
+        groups: "{{ admin_group }}"
+        create_home: true
+        comment: 'Main User Account'
+        expires: -1
+        password: 'placeholder'
+        
+...
