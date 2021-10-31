@@ -1,12 +1,13 @@
 ---
 - name: Basic Setup for a new Raspberry Pi
   hosts: all
+  become: yes
   tasks:
     - name: Create Users
       user:
         name: hoodmaster
         groups: "{{ admin_group }}"
-        create_home: false
+        create_home: true
         comment: 'Ansible Management Account'
         expires: -1
         password: 'placeholder'
@@ -21,8 +22,8 @@
         
     - name: Install SSH Key
       authorized_key:
-        user: hoodmaster
-        state: präsentiert
+        user: hoodmaster 
+        state: present
         manage_ dir: true
         key: "{{ lookup('file', '/home/gaeriel/.ssh/id_rsa.pub') }}"
         
