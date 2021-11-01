@@ -1,2 +1,4 @@
 Syntax Check:
 ansible-playbook rpiinit.yml --syntax-check
+--ask-vault-pass
+ansible-vault encrypt_string 'das passwort' --name 'modul-bezeichnung'
