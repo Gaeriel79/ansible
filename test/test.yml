@@ -1,0 +1,16 @@
+---
+
+-name: Test von Funktion
+
+ hosts: localhost
+ become: yes
+ tasks:
+
+   -name: Tester Benutzer löschen
+    user:
+      name: tester
+      state: absent
+      remove: true
+      force: true
+        
+...
