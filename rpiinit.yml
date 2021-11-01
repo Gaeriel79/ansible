@@ -1,6 +1,6 @@
 ---
 - name: Basic Setup for a new Raspberry Pi
-  hosts: raspberrypi
+  hosts: rpiinit
   become: yes
   tasks:
     - name: Create Users
