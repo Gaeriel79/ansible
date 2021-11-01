@@ -1,6 +1,6 @@
 ---
 - name: Basic Setup for a new Raspberry Pi
-  hosts: all
+  hosts: raspberrypi
   become: yes
   tasks:
     - name: Create Users
@@ -18,11 +18,12 @@
         create_home: true
         comment: 'Main User Account'
         expires: -1
+        shell: /bin/bash
         password: 'placeholder'
         
     - name: Install SSH Key
       authorized_key:
-        user: hoodmaster 
+        user: hoodmaster gaeriel
         state: present
         manage_ dir: true
         key: "{{ lookup('file', '/home/gaeriel/.ssh/id_rsa.pub') }}"
