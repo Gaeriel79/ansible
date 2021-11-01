@@ -1,14 +1,15 @@
 [rpiinit]
+192.168.178.6
 raspberrypi
 
 [rpiinit:vars]
-ansible_user:pi
-ansible_password:raspberry
+ansible_user=pi
+ansible_password=raspberry
 admin_group=sudo
 
 [dockerpi]
 dockerpi
 
 [dockerpi:vars]
-ansible_user:hoodmaster
+ansible_user=hoodmaster
 admin_group=sudo
