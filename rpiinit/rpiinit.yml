@@ -1,37 +1,39 @@
-  1 ---
-  2 - name: Basic Setup for a new Raspberry Pi                                                                                                                                           3   hosts: rpiinit
-  4   become: yes
-  5   tasks:
-  6     - name: Create User hoodmaster
-  7       user:
-  8         name:  hoodmaster
-  9         groups: "{{ admin_group }}"
- 10         create_home: true
- 11         comment: 'Ansible Management Account'
- 12         expires: -1
- 13         password: 'placeholder'
- 14
- 15     - name: Create User gaeriel
- 16       user:
- 17         name: gaeriel
- 18         groups: "{{ admin_group }}"
- 19         create_home: true
- 20         comment: 'Main User Account'
- 21         expires: -1
- 22         shell: /bin/bash
- 23         password: 'placeholder'
- 24
- 25     - name: Install SSH Key
- 26         authorized_key:
- 27           user: hoodmaster
- 28           state: present
- 29           manage_ dir: true
- 30           key: "{{ lookup('file', '/home/gaeriel/.ssh/id_rsa.pub') }}"
- 31
- 32 #     - name: Setup hoodmaster Sudo Access
- 33 #       copy:
- 34 #         dest: /etc/sudoers.d/hoodmaster
- 35 #         content: 'hoodmaster ALL=(ALL) NOPASSWD: ALL'
- 36 #         validate: /usr/sbin/visudo -cf %s
- 37
- 38 ...
+---
+- name: Basic Setup for a new Raspberry Pi
+
+  hosts: rpiinit
+  become: yes
+  tasks:
+    - name: Create User hoodmaster
+      user:
+        name:  hoodmaster
+        groups: "{{ admin_group }}"
+        create_home: true
+        comment: 'Ansible Management Account'
+        expires: -1
+        password: 'placeholder'
+
+    - name: Create User gaeriel
+      user:
+        name: gaeriel
+        groups: "{{ admin_group }}"
+        create_home: true
+        comment: 'Main User Account'
+        expires: -1
+        shell: /bin/bash
+        password: 'placeholder'
+
+    - name: Install SSH Key
+        authorized_key:
+          user: hoodmaster
+          state: present
+          manage_ dir: true
+          key: "{{ lookup('file', '/home/gaeriel/.ssh/id_rsa.pub') }}"
+
+#     - name: Setup hoodmaster Sudo Access
+#       copy:
+#         dest: /etc/sudoers.d/hoodmaster
+#         content: 'hoodmaster ALL=(ALL) NOPASSWD: ALL'
+#         validate: /usr/sbin/visudo -cf %s
+
+...
