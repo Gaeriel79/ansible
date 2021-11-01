@@ -1,9 +1,10 @@
 ---
 - name: Basic Setup for a new Raspberry Pi
+
   hosts: rpiinit
   become: yes
   tasks:
-    - name: Create Users
+    - name: Create User hoodmaster
       user:
         name: hoodmaster
         groups: "{{ admin_group }}"
@@ -11,8 +12,9 @@
         comment: 'Ansible Management Account'
         expires: -1
         password: 'placeholder'
-        
-        user:
+
+    - name: Create User gaeriel
+      user:
         name: gaeriel
         groups: "{{ admin_group }}"
         create_home: true
@@ -20,18 +22,18 @@
         expires: -1
         shell: /bin/bash
         password: 'placeholder'
-        
+
     - name: Install SSH Key
-      authorized_key:
-        user: hoodmaster gaeriel
-        state: present
-        manage_ dir: true
-        key: "{{ lookup('file', '/home/gaeriel/.ssh/id_rsa.pub') }}"
-        
+        authorized_key:
+          user: hoodmaster
+          state: present
+          manage_ dir: true
+          key: "{{ lookup('file', '/home/gaeriel/.ssh/id_rsa.pub') }}"
+
 #     - name: Setup hoodmaster Sudo Access
 #       copy:
 #         dest: /etc/sudoers.d/hoodmaster
 #         content: 'hoodmaster ALL=(ALL) NOPASSWD: ALL'
 #         validate: /usr/sbin/visudo -cf %s
-         
+
 ...
