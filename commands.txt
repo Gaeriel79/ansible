@@ -1,4 +1,9 @@
 Syntax Check:
 ansible-playbook rpiinit.yml --syntax-check
+
+Encryption
 --ask-vault-pass
 ansible-vault encrypt_string 'das passwort' --name 'modul-bezeichnung'
+
+Run Playbook local without SSH
+ ansible-playbook test.yml --connection=local
