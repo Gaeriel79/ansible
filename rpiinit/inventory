@@ -2,13 +2,13 @@
 raspberrypi
 
 [rpiinit:vars]
-ansible_ssh_user:pi
-ansible_ssh_password:raspberry
+ansible_user:pi
+ansible_password:raspberry
 admin_group=sudo
 
 [dockerpi]
 dockerpi
 
 [dockerpi:vars]
-ansible_ssh_user:hoodmaster
+ansible_user:hoodmaster
 admin_group=sudo
