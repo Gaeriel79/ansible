@@ -1,12 +1,12 @@
 ---
 
--name: Test von Funktion
+- name: Test von Funktion
 
- hosts: localhost
- become: yes
- tasks:
+  hosts: local
+  become: yes
+  tasks:
 
-   -name: Tester Benutzer löschen
+  - name: Tester Benutzer löschen
     user:
       name: tester
       state: absent
