@@ -13,3 +13,6 @@ dockerpi
 [dockerpi:vars]
 ansible_user=hoodmaster
 admin_group=sudo
+
+[myself]
+localhost ansible_connection=local
